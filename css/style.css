@@ -157,4 +157,12 @@ body{
 
     textarea{
         border-radius: 10px;
+        width: 200px;
+        transition: background-color 1s ;
+        transition: width 0.5s;
+    }
+
+    textarea:hover{
+        background-color: rgb(218, 216, 219);
+        width: 220px;
     }
