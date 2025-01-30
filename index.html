@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkness Awaits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in;
+        }
+        .flicker {
+            animation: flicker 1.5s infinite alternate;
+        }
+        .bg-dark {
+            background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+        }
+        .fixed-bg {
+            background: url('https://plus.unsplash.com/premium_photo-1723867219819-c3c85d398efd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGFyayUyMGJyaWNrJTIwd2FsbHxlbnwwfHwwfHx8MA%3D%3D') center/cover no-repeat fixed;
+            position: relative;
+        }
+        .content-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 4rem;
+            margin: 4rem auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark text-white font-sans fixed-bg">
+    <header class="bg-black py-12 text-center fade-in shadow-xl">
+        <h1 class="text-8xl font-bold text-red-600 flicker">Darkness Awaits</h1>
+        <p class="text-2xl text-gray-400 italic">La oscuridad te espera... ¿Estás listo?</p>
+    </header>
+    
+    <section class="container mx-auto text-center fade-in content-section">
+        <h2 class="text-5xl font-semibold text-red-500">Sobre el juego</h2>
+        <p class="mt-6 text-gray-300 text-xl">Explora un mundo de pesadillas donde cada sombra oculta un secreto. Resuelve acertijos, evade criaturas aterradoras y descubre la verdad detrás de la oscuridad.</p>
+    </section>
+    
+    <section class="container mx-auto text-center fade-in content-section">
+        <h2 class="text-5xl font-semibold text-red-500">Características</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
+                <h3 class="text-2xl font-bold text-red-400">Terror psicológico</h3>
+                <p class="text-gray-300 text-lg">Una historia envolvente que juega con tu mente.</p>
+            </div>
+            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
+                <h3 class="text-2xl font-bold text-red-400">Gráficos inmersivos</h3>
+                <p class="text-gray-300 text-lg">Ambientes oscuros y realistas que te pondrán los pelos de punta.</p>
+            </div>
+            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
+                <h3 class="text-2xl font-bold text-red-400">Jugabilidad intensa</h3>
+                <p class="text-gray-300 text-lg">Escape, acertijos y tensión constante.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container mx-auto text-center fade-in content-section">
+        <h2 class="text-5xl font-semibold text-red-500">Historia</h2>
+        <p class="mt-6 text-gray-300 text-xl">Te despiertas en un lugar oscuro sin memoria de cómo llegaste ahí. Ecos de susurros te guían a través de pasillos sombríos. ¿Podrás descubrir la verdad antes de que sea demasiado tarde?</p>
+    </section>
+    
+    <section class="container mx-auto text-center fade-in content-section">
+        <h2 class="text-5xl font-semibold text-red-500">Personajes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
+                <h3 class="text-2xl font-bold text-red-400">El Protagonista</h3>
+                <p class="text-gray-300 text-lg">Un alma perdida en un mundo aterrador, buscando respuestas.</p>
+            </div>
+            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
+                <h3 class="text-2xl font-bold text-red-400">La Sombra</h3>
+                <p class="text-gray-300 text-lg">Una entidad misteriosa que te observa desde las tinieblas.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container mx-auto text-center fade-in content-section">
+        <h2 class="text-5xl font-semibold text-red-500">Tráiler</h2>
+        <div class="mt-8">
+            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <footer class="bg-black py-12 text-center fade-in shadow-xl">
+        <p class="text-gray-400 text-lg">&copy; 2025 Darkness Awaits. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
