@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Darkness Awaits</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes flicker {
+                0% { opacity: 0.8; }
+                50% { opacity: 0.3; }
+                100% { opacity: 1; }
+            }
+            .fade-in {
+                animation: fadeIn 2s ease-in;
+            }
+            .flicker {
+                animation: flicker 1.5s infinite alternate;
+            }
+            .bg-dark {
+                background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+            }
+            .fixed-bg {
+                background: url('https://plus.unsplash.com/premium_photo-1723867219819-c3c85d398efd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGFyayUyMGJyaWNrJTIwd2FsbHxlbnwwfHwwfHx8MA%3D%3D') center/cover no-repeat fixed;
+                position: relative;
+            }
+            .content-section {
+                background: rgba(0, 0, 0, 0.8);
+                padding: 4rem;
+                margin: 4rem auto;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body class="bg-dark text-white font-sans fixed-bg"><header class="bg-black py-12 text-center fade-in shadow-xl">
+        <header class="bg-black py-12 text-center fade-in shadow-xl">
+            <nav class="posicio_menu">
+                <div id="menu"> 
+                    <ul class="menup"> 
+                        <li class="dropdown"><a href="">menu</a> 
+                            <ul> 
+                                <li><span></span><a href="#opcion1">Menú principal</a></li>
+                                <hr>
+                                <li><span></span><a href="#opcion2">Soporte</a></li> 
+                                <hr>
+                                <li><span></span><a href="#opcion3">Creditos</a></li>
+                                <hr>
+                                <li><span></span><a href="#opcion4">Trailer oficial</a></li>
+                                <hr>
+                                <li><span></span><a href="#opcion5">Mas informaicón</a></li>
+                                <hr>
+                                <li><span></span><a href="#opcion6">Creador</a></li>
+                            </ul> 
+                        </li>
+                </div>
+            </nav>
+            <h1 class="text-8xl font-bold text-red-600 flicker">Soporte</h1>
+        </header>
+        
+    </body>
+</html>
