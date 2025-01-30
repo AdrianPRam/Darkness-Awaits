@@ -15,6 +15,9 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
+        @keyframes ms-light {
+            
+        }
         .fade-in {
             animation: fadeIn 2s ease-in;
         }
@@ -35,12 +38,29 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
+        .linterna {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 100px 50px rgba(255, 255, 200, 0.2);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: lighten;
+        }
+        
+        
     </style>
 </head>
 <body class="bg-dark text-white font-sans fixed-bg">
+    <div id="linterna" class="linterna position-front"></div>
     <header class="bg-black py-12 text-center fade-in shadow-xl">
         <h1 class="text-8xl font-bold text-red-600 flicker">Darkness Awaits</h1>
         <p class="text-2xl text-gray-400 italic">La oscuridad te espera... ¿Estás listo?</p>
+        <button id="mute-button" class="mt-4 px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition">
+            🔇 Mutear Música
+        </button>
+        <audio id="background-music" src="https://www.fesliyanstudios.com/play-mp3/4389" autoplay loop></audio>
     </header>
     
     <section class="container mx-auto text-center fade-in content-section">
@@ -88,12 +108,33 @@
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Tráiler</h2>
         <div class="mt-8">
-            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
     
     <footer class="bg-black py-12 text-center fade-in shadow-xl">
         <p class="text-gray-400 text-lg">&copy; 2025 Darkness Awaits. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        // Linterna
+        document.addEventListener("mousemove", (e) => {
+            const linterna = document.getElementById("linterna");
+            linterna.style.top = `${e.clientY}px`;
+            linterna.style.left = `${e.clientX}px`;
+        });
+
+        // Botón de mute
+        const audio = document.getElementById("background-music");
+        const muteButton = document.getElementById("mute-button");
+        muteButton.addEventListener("click", () => {
+            if (audio.muted) {
+                audio.muted = false;
+                muteButton.textContent = "🔇 music on";
+            } else {
+                audio.muted = true;
+                muteButton.textContent = "🔊 music off";
+            }
+        });
+    </script>
 </body>
 </html>
