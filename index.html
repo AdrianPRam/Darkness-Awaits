@@ -1,37 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="author" content="Darkness-Awaits"><!-- Define el autor del documento -->
+    <meta name="description" content="Portfolio - Samuel Henares Choaibi">
+    <!-- Proporciona una descripción del contenido del documento para SEO -->
+  
+    <meta property="og:url" content="Darkness-Awaits">
+    <!-- Define la URL del documento para Open Graph (redes sociales) -->
+  
+    <meta name="robots" content="index, follow">
+    <!-- Indica a los motores de búsqueda que indexen la página, debería ser 'index, follow' -->
+  
+    <meta name="keywords" content="Darkness-Awaits">
+    <!-- Palabras clave para SEO -->
+  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura la ventana gráfica para un diseño responsive -->
+  
+    <link rel="icon" href="">
+    <!-- Define el logo -->
+  
     <title>Darkness Awaits</title>
     <script src="https://cdn.tailwindcss.com"></script>
-   
+
     <style>
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         @keyframes flicker {
-            0% { opacity: 0.8; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
-        @keyframes ms-light {
-            
+
+        @keyframes ms-light {}
+
+        :root {
+            /* Definición de variables CSS para colores, tamaños y efectos */
+            --color-primario: rgba(38, 38, 38, 0.9);
+            --color-menu: rgba(43, 42, 42, 0.9);
+            --filtro: blur(5px);
+            --altura_header: 8rem;
+            --padding_left_right: 2rem;
+            --ancho_maximo: 1200px;
         }
+
+        header {
+            height: var(--altura_header);
+        }
+
+        nav {
+            /* Estilo del menú de navegación */
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3.125rem;
+            height: var(--altura_header);
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--color-primario);
+            backdrop-filter: blur(5px);
+            color: white;
+        }
+
+        nav a {
+            /* Estilo para los enlaces en el menú de navegación */
+            text-decoration: none;
+        }
+
+        nav ol,
+        ul {
+            /* Eliminación de estilo de lista por defecto */
+            list-style: none;
+        }
+
+        .menu_hamburguesa {
+            /* Estilo para el menú hamburguesa (oculto por defecto) */
+            display: none;
+        }
+
+        .menu_hamburguesa:checked+.ul_links {
+            /* Estilo para mostrar el menú al seleccionar el checkbox */
+            height: calc(100vh - var(--altura_header));
+            background-color: var(--color-menu);
+            z-index: 40;
+        }
+
+        .ul_links {
+            /* Estilo para el menú desplegable */
+            width: 100%;
+            position: absolute;
+            top: var(--altura_header);
+            left: 0;
+            height: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            transition: all .3s;
+        }
+
+        .link {
+            /* Estilo para los enlaces disponibles en el menú */
+            font-size: 3em;
+            color: var(--color_blanco);
+            font-weight: bold;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .link:hover {
+            /* Efecto hover para los enlaces */
+            transform: scale(1.05);
+            color: hwb(0 33% 0% / 0.55);
+        }
+
+        .link-selected {
+            /* Estilo para los enlaces en el menú */
+            font-size: 3em;
+            color: rgb(157, 156, 156);
+            opacity: 50%;
+            font-weight: bold;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /* Estilos para secciones específicas */
+        #about-section {
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 2rem;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        #sobremi-section h2 {
+            margin-bottom: 1rem;
+            font-size: 2.75rem;
+            font-weight: 700;
+        }
+
         .fade-in {
             animation: fadeIn 2s ease-in;
         }
+
         .flicker {
             animation: flicker 1.5s infinite alternate;
         }
+
         .bg-dark {
-            background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+            background: radial-gradient(circle, rgba(20, 20, 20, 1) 0%, rgba(0, 0, 0, 1) 100%);
         }
+
         .fixed-bg {
             background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWI1ZHVsdTFkamdoMzAxbHI3ZzAzbGc3ZHR5ejhncmNxMGxqd283eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xyBPM2nmoMvraw/giphy.gif') center/cover no-repeat fixed;
             position: relative;
         }
+
         .content-section {
             background: rgba(0, 0, 0, 0.8);
             padding: 4rem;
@@ -39,6 +186,7 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
+
         .linterna {
             position: fixed;
             width: 200px;
@@ -49,41 +197,72 @@
             transform: translate(-50%, -50%);
             mix-blend-mode: lighten;
         }
-        .tx-20{
+
+        .tx-20 {
             font-size: 200%;
         }
-       
-        
-        
     </style>
 </head>
+
 <body class="bg-dark text-white font-sans fixed-bg">
-    
+
     <div id="linterna" class="linterna z-40"></div>
     <header class="bg-black py-6 px-8 flex justify-between items-center fade-in shadow-xl">
         <!-- Menú Hamburguesa -->
-        <button class="text-white text-3xl" id="menu-toggle">&#9776;</button>
-        
+        <label for="menu_hamburguesa">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="list_icon"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </label>
+
+        <input class="menu_hamburguesa" type="checkbox" name="" id="menu_hamburguesa">
+
+        <ul class="ul_links">
+            <li class="li_links">
+                <a href="index.html" class="link-selected">Inicio</a>
+            </li>
+            <li class="li_links">
+                <a href="#" class="link">Contacto</a>
+            </li>
+            <li class="li_links">
+                <a href="#" class="link">Créditos</a>
+            </li>
+
+            <li class="li_links">
+                <a href="#" class="link">Trailer oficial</a>
+            </li>
+            <li class="li_links">
+                <a href="#" class="link">Más información</a>
+            </li>
+
+            <li class="li_links">
+                <a href="#" class="link">Creador</a>
+            </li>
+        </ul>
         <!-- Título y Subtítulo -->
         <div class="text-center">
             <h1 class="text-6xl font-bold text-red-600 flicker">Darkness Awaits</h1>
             <p class="text-xl text-gray-400 italic">La oscuridad te espera... ¿Estás listo?</p>
         </div>
-        
+
         <!-- Botón de Mutear -->
         <button id="mute-button" class="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition tx-20">
-             🔇 
+            🔇
         </button>
         
 
     </header>
     <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
-    
+
+
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Sobre el juego</h2>
-        <p class="mt-6 text-gray-300 text-xl">Explora un mundo de pesadillas donde cada sombra oculta un secreto. Resuelve acertijos, evade criaturas aterradoras y descubre la verdad detrás de la oscuridad.</p>
+        <p class="mt-6 text-gray-300 text-xl">Explora un mundo de pesadillas donde cada sombra oculta un secreto.
+            Resuelve acertijos, evade criaturas aterradoras y descubre la verdad detrás de la oscuridad.</p>
     </section>
-    
+
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Características</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
@@ -101,12 +280,14 @@
             </div>
         </div>
     </section>
-    
+
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Historia</h2>
-        <p class="mt-6 text-gray-300 text-xl">Te despiertas en un lugar oscuro sin memoria de cómo llegaste ahí. Ecos de susurros te guían a través de pasillos sombríos. ¿Podrás descubrir la verdad antes de que sea demasiado tarde?</p>
+        <p class="mt-6 text-gray-300 text-xl">Te despiertas en un lugar oscuro sin memoria de cómo llegaste ahí. Ecos de
+            susurros te guían a través de pasillos sombríos. ¿Podrás descubrir la verdad antes de que sea demasiado
+            tarde?</p>
     </section>
-    
+
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Personajes</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
@@ -120,14 +301,15 @@
             </div>
         </div>
     </section>
-    
+
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Tráiler</h2>
         <div class="mt-8">
-            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450"
+                src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
-    
+
     <footer class="bg-black py-12 text-center fade-in shadow-xl">
         <p class="text-gray-400 text-lg">&copy; 2025 Darkness Awaits. Todos los derechos reservados.</p>
     </footer>
@@ -154,4 +336,5 @@
         });
     </script>
 </body>
+
 </html>
