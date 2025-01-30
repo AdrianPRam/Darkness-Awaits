@@ -117,3 +117,44 @@ body{
         margin-top: -90px;
         margin-left: -180px;
     }
+
+    .movernav{
+        margin-left: 350px;
+    }
+
+    .Formulari{ 
+        margin-left: 30px;
+        display: flex;
+        margin-top: 8px;
+    }
+
+    button{
+        border-radius: 20%;
+        width: 80px;
+        background-color: white;
+        color: #000000;
+        border-color: rgba(86, 74, 133, 0.692);
+        transition: background-color 0.5s;
+    
+    }
+    button:hover{
+        background-color: rgb(169, 161, 201);
+        color: white;
+    }
+    input{
+    width: 200px;
+    height: 23px;
+    transition: background-color 1s ;
+    transition: width 0.5s;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    }
+
+    input:hover{
+    background-color: rgb(218, 216, 219);
+    width: 220px;
+    }
+
+    textarea{
+        border-radius: 10px;
+    }
