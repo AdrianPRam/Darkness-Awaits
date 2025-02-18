@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    }
+    
+    nav{
+    width: 100%;
+    height: 35px;
+    }
+    
+    #menu{
+    width: 100%;
+    height: 35px;
+    background: #000000;
+    float: left;
+    position: relative;
+    } 
+    
+    #menu .menup{
+    width: 960px;
+    height: 35px;
+    margin: 0 auto;
+    padding: 0px;
+    }
+    
+    #menu li{
+    float:left;
+    position:relative;
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
+    } 
+    
+    #menu li a{
+    color:#ffffff;
+    font-size:12px;
+    padding: 10px 10px;
+    /* text-shadow: 0px -1px 0px #000; */
+    text-decoration: none;
+    text-transform: uppercase;
+    } 
+    
+    /*ocultamos el dropdown*/    
+    #menu li > ul{
+    display:none;
+    position:absolute;
+    background: #000000;
+    padding: 0;
+    z-index: 2;
+    }
+    
+    #menu li > ul li{
+    padding:0;
+    margin:1px 0;
+    list-style: none;
+    } 
+    
+    #menu li > ul li:first-child, #menu li:hover > ul li:last-child{
+    padding:0;
+    margin:0 0;
+    }
+    
+    /*le damos el color blanco al enlance del submenu y el background negro */    
+    #menu li:hover > a{
+    color:#424242;
+    background-color: #ffffff;
+    width: 120px; 
+    } 
+    
+    #menu li > ul li a{
+    width: 150px;
+    margin: 0 0 0 5px;
+    display:block;
+    color: #ffffff;
+    } 
+    
+    /* Con esto mantenemos el codigo submenu activo */
+    #menu li:hover > ul{
+    display:block;
+    width: 150px;
+    top: 35px;
+        }
+    
+    #menu .divider{
+    border-right: 1px solid #BCBCBC;
+    height: 23px;
+    }
+    #menu .dropdown::after{
+    content:"";
+    position: absolute;
+    top: 15px;
+    left: 52px;
+    width:0px;
+    height:0px;
+    border-style: solid;
+    border-width: 4.3px;
+    border-bottom-width:0px;
+    border-color: #BCBCBC transparent transparent transparent;
+    }
+    
+    #menu li:hover::after{
+    border-color: #fff transparent transparent transparent;
+    }
+    
+    
+    #menu .dropdown span{
+    height: 15px;
+    width: 3px;
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    }
+
+    .posicio_menu{
+        margin-top: -90px;
+        margin-left: -180px;
+    }
+
+    .movernav{
+        margin-left: 350px;
+    }
+
+    .Formulari{ 
+        margin-left: 30px;
+        display: flex;
+        margin-top: 8px;
+    }
+
+    button{
+        border-radius: 20%;
+        width: 80px;
+        background-color: white;
+        color: #000000;
+        border-color: rgba(86, 74, 133, 0.692);
+        transition: background-color 0.5s;
+    
+    }
+    button:hover{
+        background-color: rgb(169, 161, 201);
+        color: white;
+    }
+    input{
+    width: 200px;
+    height: 23px;
+    transition: background-color 1s ;
+    transition: width 0.5s;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    }
+
+    input:hover{
+    background-color: rgb(218, 216, 219);
+    width: 220px;
+    }
+
+    textarea{
+        border-radius: 10px;
+        width: 200px;
+        transition: background-color 1s ;
+        transition: width 0.5s;
+    }
+
+    textarea:hover{
+        background-color: rgb(218, 216, 219);
+        width: 220px;
+    }
