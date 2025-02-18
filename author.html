@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
     <meta name="author" content="Darkness-Awaits"><!-- Define el autor del documento -->
-    <meta name="description" content="Principal Menu">
+    <meta name="description" content="Author Information">
     <!-- Proporciona una descripción del contenido del documento para SEO -->
 
     <meta property="og:url" content="Darkness-Awaits">
@@ -208,9 +208,19 @@
         .tx-20 {
             font-size: 200%;
         }
+
+        .author-img-align{
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-img-align img{
+            padding-top: 75px;
+            padding-bottom: 50px;
+
+        }
     </style>
 </head>
-
 <body class="bg-dark text-white font-sans fixed-bg">
 
     <div id="linterna" class="linterna z-40"></div>
@@ -228,7 +238,7 @@
 
         <ul class="ul_links">
             <li class="li_links">
-                <a href="index.html" class="link-selected">Inicio</a>
+                <a href="index.html" class="link">Inicio</a>
             </li>
             <li class="li_links">
                 <a href="#" class="link">Contacto</a>
@@ -245,7 +255,7 @@
             </li>
 
             <li class="li_links">
-                <a href="author.html" class="link">Autor</a>
+                <a href="author.html" class="link-selected">Autor</a>
             </li>
         </ul>
         <!-- Título y Subtítulo -->
@@ -264,53 +274,16 @@
     <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
 
 
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Sobre el juego</h2>
-        <p class="mt-6 text-gray-300 text-xl">Explora un mundo de pesadillas donde cada sombra oculta un secreto.
-            Resuelve acertijos, evade criaturas aterradoras y descubre la verdad detrás de la oscuridad.</p>
+    <section class="container mx-auto text-center fade-in content-section author-img-align">
+        <h2 class="text-5xl font-semibold text-red-500">(Nombre del autor)</h2>
+        <img src="https://media1.tenor.com/m/mTQgXH7XefEAAAAd/evil-king-von-king-von.gif" alt="Author Image">
+        <p class="mt-6 text-gray-300 text-xl">(Descripción del autor)</p>
     </section>
 
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Características</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Terror psicológico</h3>
-                <p class="text-gray-300 text-lg">Una historia envolvente que juega con tu mente.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Gráficos inmersivos</h3>
-                <p class="text-gray-300 text-lg">Ambientes oscuros y realistas que te pondrán los pelos de punta.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Jugabilidad intensa</h3>
-                <p class="text-gray-300 text-lg">Escape, acertijos y tensión constante.</p>
-            </div>
-        </div>
-    </section>
+ 
 
     <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Historia</h2>
-        <p class="mt-6 text-gray-300 text-xl">Te despiertas en un lugar oscuro sin memoria de cómo llegaste ahí. Ecos de
-            susurros te guían a través de pasillos sombríos. ¿Podrás descubrir la verdad antes de que sea demasiado
-            tarde?</p>
-    </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Personajes</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">El Protagonista</h3>
-                <p class="text-gray-300 text-lg">Un alma perdida en un mundo aterrador, buscando respuestas.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">La Sombra</h3>
-                <p class="text-gray-300 text-lg">Una entidad misteriosa que te observa desde las tinieblas.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Tráiler</h2>
+        <h2 class="text-5xl font-semibold text-red-500">Video de Presentación</h2>
         <div class="mt-8">
             <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450"
                 src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
@@ -343,5 +316,4 @@
         });
     </script>
 </body>
-
 </html>
