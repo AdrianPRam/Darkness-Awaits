@@ -10,7 +10,7 @@
     <meta property="og:url" content="Darkness-Awaits">
     <!-- Define la URL del documento para Open Graph (redes sociales) -->
 
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="author, follow">
     <!-- Indica a los motores de búsqueda que indexen la página, debería ser 'index, follow' -->
 
     <meta name="keywords" content="Darkness-Awaits">
@@ -107,7 +107,7 @@
 
         .menu_hamburguesa:checked+.ul_links {
             /* Estilo para mostrar el menú al seleccionar el checkbox */
-            height: calc(100vh - var(--altura_header));
+            height: calc(100vh - var(--altura_header) + 75px);
             background-color: var(--color-menu);
             z-index: 40;
         }
@@ -209,20 +209,21 @@
             font-size: 200%;
         }
 
-        .author-img-align{
+        .author-img-align {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
 
-        .author-img-align img{
+        .author-img-align img {
             padding-top: 75px;
             padding-bottom: 50px;
 
         }
     </style>
 </head>
+
 <body class="bg-dark text-white font-sans fixed-bg">
 
     <div id="linterna" class="linterna z-40"></div>
@@ -271,7 +272,7 @@
 
         <!-- Botón de Mutear -->
         <button id="mute-button" class="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition tx-20">
-            🔇
+            🔊
         </button>
 
 
@@ -285,7 +286,7 @@
         <p class="mt-6 text-gray-300 text-xl">(Descripción del autor)</p>
     </section>
 
- 
+
 
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Video de Presentación</h2>
@@ -313,12 +314,13 @@
         muteButton.addEventListener("click", () => {
             if (audio.muted) {
                 audio.muted = false;
-                muteButton.textContent = " 🔇 ";
+                muteButton.textContent = " 🔊 ";
             } else {
                 audio.muted = true;
-                muteButton.textContent = " 🔊 ";
+                muteButton.textContent = " 🔇 ";
             }
         });
     </script>
 </body>
+
 </html>

@@ -2,8 +2,26 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="author" content="Darkness-Awaits"><!-- Define el autor del documento -->
+    <meta name="description" content="Suport Information">
+    <!-- Proporciona una descripción del contenido del documento para SEO -->
+
+    <meta property="og:url" content="Darkness-Awaits">
+    <!-- Define la URL del documento para Open Graph (redes sociales) -->
+
+    <meta name="robots" content="suport, follow">
+    <!-- Indica a los motores de búsqueda que indexen la página, debería ser 'index, follow' -->
+
+    <meta name="keywords" content="Darkness-Awaits">
+    <!-- Palabras clave para SEO -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura la ventana gráfica para un diseño responsive -->
+
+    <link rel="icon" href="https://i.pinimg.com/736x/d0/ee/cd/d0eecd5b96b94707a317053ab1addd83.jpg">
+    <!-- Define el logo -->
+
     <title>Darkness Awaits</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -53,6 +71,10 @@
             .responsive-form {
                 width: 325px;
             }
+        }
+
+        form {
+            width: 700px;
         }
 
         body {
@@ -268,12 +290,12 @@
             justify-content: center;
         }
 
-        .margin-top-25{
+        .margin-top-25 {
             margin-top: 25px;
         }
 
-        .background-form{
-            background-color:rgba(255, 0, 0, 0.3);
+        .background-form {
+            background-color: rgba(255, 0, 0, 0.3);
             opacity: 50%;
         }
 
@@ -318,7 +340,7 @@
 
         .menu_hamburguesa:checked+.ul_links {
             /* Estilo para mostrar el menú al seleccionar el checkbox */
-            height: calc(100vh - var(--altura_header));
+            height: calc(100vh - var(--altura_header) + 75px);
             background-color: var(--color-menu);
             z-index: 40;
         }
@@ -390,8 +412,13 @@
             </li>
 
             <li class="li_links">
-                <!-- Poner enlace del video si hay -->
                 <a href="#" class="link">Trailer oficial</a>
+            </li>
+            <li class="li_links">
+                <a href="#" class="link">Blog</a>
+            </li>
+            <li class="li_links">
+                <a href="#" class="link">Registro de Partidas</a>
             </li>
 
             <li class="li_links">
@@ -405,8 +432,8 @@
         </div>
 
         <!-- Botón de Mutear -->
-        <button id="mute-button" class="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition tx-20">
-            🔇
+        <button id="mute-button" class="px-8 py-3 text-xl bg-black text-white rounded-lg hover:bg-red-800 transition">
+            🔊
         </button>
 
 
@@ -416,26 +443,33 @@
 
     <section class="container mx-auto text-center fade-in content-section">
         <h2 class="text-5xl font-semibold text-red-500">Contactanos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-            <div
-                class="p-8  rounded-lg hover:scale-105 transform transition duration-300 shadow-md responsive-form background-form">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+            <div class="p-8 rounded-lg hover:scale-105 transform transition duration-300 shadow-md max-w-xl mx-auto">
                 <article class="formulari">
                     <div>
-                        <form action="">
-                            <div>
-                                <input type="text" name="nom" placeholder="Nombre completo">
-                                <input class="margin-top-25" type="text" name="correu" placeholder="Correo Electrónico">
+                        <form action="" class="w-full p-4 shadow-lg rounded-lg background-form">
+                            <div class="flex flex-col space-y-4">
+                                <input type="text" name="nom" placeholder="Nombre completo"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="email" name="correu" placeholder="Correo Electrónico"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <textarea name="comentari" placeholder="Mensaje"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    rows="4"></textarea>
+                                <button type="submit"
+                                    class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300">
+                                    Enviar
+                                </button>
                             </div>
-                            <br><textarea name="comentari" id="" placeholder="Mensaje"></textarea>
-                            <br><button class="marginButton">Enviar</button>
                         </form>
                     </div>
                 </article>
             </div>
-            <!-- La idea es poner algun personaje del juego o algun elemento al lado del formulario,alomejor hasta de alguna forma podriamos hacer que el formulario tenga forma de pergamino por la tematica del juego-->
-            <div></div>
+
+            <!-- La idea es poner algun personaje del juego o algun elemento al lado del formulario, al omejor hasta de alguna forma podriamos hacer que el formulario tenga forma de pergamino por la tematica del juego-->
             <div>
-                <div class="p-8  rounded-lg hover:scale-105 transform transition duration-300 shadow-md background-form">
+                <div
+                    class="p-8  rounded-lg hover:scale-105 transform transition duration-300 shadow-md background-form">
                     <img src="/sources/images/placeholder_Darkness.png" alt="">
                 </div>
             </div>
@@ -472,10 +506,10 @@
         muteButton.addEventListener("click", () => {
             if (audio.muted) {
                 audio.muted = false;
-                muteButton.textContent = " 🔇 ";
+                muteButton.textContent = " 🔊 ";
             } else {
                 audio.muted = true;
-                muteButton.textContent = " 🔊 ";
+                muteButton.textContent = " 🔇 ";
             }
         });
     </script>

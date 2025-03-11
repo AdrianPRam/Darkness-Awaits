@@ -50,7 +50,7 @@
             }
         }
 
-        
+
 
 
         @keyframes ms-light {}
@@ -110,7 +110,7 @@
 
         .menu_hamburguesa:checked+.ul_links {
             /* Estilo para mostrar el menú al seleccionar el checkbox */
-            height: calc(100vh - var(--altura_header));
+            height: calc(100vh - var(--altura_header) + 75px);
             background-color: var(--color-menu);
             z-index: 40;
         }
@@ -244,7 +244,7 @@
             <li class="li_links">
                 <a href="#" class="link">Trailer oficial</a>
             </li>
-            
+
             <li class="li_links">
                 <a href="#" class="link">Blog</a>
             </li>
@@ -264,7 +264,7 @@
 
         <!-- Botón de Mutear -->
         <button id="mute-button" class="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition tx-20">
-            🔇
+            🔊
         </button>
 
 
@@ -343,10 +343,10 @@
         muteButton.addEventListener("click", () => {
             if (audio.muted) {
                 audio.muted = false;
-                muteButton.textContent = " 🔇 ";
+                muteButton.textContent = " 🔊 ";
             } else {
                 audio.muted = true;
-                muteButton.textContent = " 🔊 ";
+                muteButton.textContent = " 🔇 ";
             }
         });
     </script>
