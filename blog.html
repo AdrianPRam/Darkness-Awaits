@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
     <meta name="author" content="Darkness-Awaits"><!-- Define el autor del documento -->
@@ -21,10 +22,53 @@
     <link rel="icon" href="https://i.pinimg.com/736x/d0/ee/cd/d0eecd5b96b94707a317053ab1addd83.jpg">
     <!-- Define el logo -->
 
-   
+
     <title>Darkness Awaits</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes ms-light {}
+
+        :root {
+            /* Definición de variables CSS para colores, tamaños y efectos */
+            --color-primario: rgba(38, 38, 38, 0.9);
+            --color-menu: rgba(43, 42, 42, 0.9);
+            --filtro: blur(5px);
+            --altura_header: 8rem;
+            --padding_left_right: 2rem;
+            --ancho_maximo: 1200px;
+        }
+
+        @media (max-width: 1024px) {
+            iframe {
+                width: 99%;
+            }
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -34,10 +78,12 @@
         .content-section {
             flex-grow: 1;
         }
+
         .bg-dark {
             background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWI1ZHVsdTFkamdoMzAxbHI3ZzAzbGc3ZHR5ejhncmNxMGxqd283eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xyBPM2nmoMvraw/giphy.gif') center/cover no-repeat fixed;
             position: relative;
         }
+
         .post-card {
             background: rgba(0, 0, 0, 0.8);
             padding: 2rem;
@@ -45,9 +91,11 @@
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out;
         }
+
         .post-card:hover {
             transform: scale(1.05);
         }
+
         .music-btn {
             position: fixed;
             top: 20px;
@@ -59,9 +107,50 @@
             box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
             transition: background 0.3s;
         }
+
         .music-btn:hover {
             background: rgba(255, 0, 0, 1);
         }
+
+        nav {
+            /* Estilo del menú de navegación */
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3.125rem;
+            height: var(--altura_header);
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--color-primario);
+            backdrop-filter: blur(5px);
+            color: white;
+        }
+
+        nav a {
+            /* Estilo para los enlaces en el menú de navegación */
+            text-decoration: none;
+        }
+
+        nav ol,
+        ul {
+            /* Eliminación de estilo de lista por defecto */
+            list-style: none;
+        }
+
+        .menu_hamburguesa {
+            /* Estilo para el menú hamburguesa (oculto por defecto) */
+            display: none;
+        }
+
+        .menu_hamburguesa:checked+.ul_links {
+            /* Estilo para mostrar el menú al seleccionar el checkbox */
+            height: calc(100vh - var(--altura_header) + 75px);
+            background-color: var(--color-menu);
+            z-index: 40;
+        }
+
         .ul_links {
             /* Estilo para el menú desplegable */
             width: 100%;
@@ -77,17 +166,7 @@
             gap: 3rem;
             transition: all .3s;
         }
-        .menu_hamburguesa {
-            /* Estilo para el menú hamburguesa (oculto por defecto) */
-            display: none;
-        }
 
-        .menu_hamburguesa:checked+.ul_links {
-            /* Estilo para mostrar el menú al seleccionar el checkbox */
-            height: calc(100vh - var(--altura_header));
-            background-color: var(--color-menu);
-            z-index: 40;
-        }
         .link {
             /* Estilo para los enlaces disponibles en el menú */
             font-size: 3em;
@@ -112,25 +191,10 @@
         }
     </style>
 </head>
+
 <body class="bg-dark text-white font-sans">
-    <audio id="background-music" loop>
-        <source src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" type="audio/mpeg">
-    </audio>
-    <button id="mute-button" class="music-btn">🔊</button>
-    <script>
-        const audio = document.getElementById("background-music");
-        const muteButton = document.getElementById("mute-button");
-        muteButton.addEventListener("click", () => {
-            if (audio.muted) {
-                audio.muted = false;
-                muteButton.textContent = "🔊";
-            } else {
-                audio.muted = true;
-                muteButton.textContent = "🔇";
-            }
-        });
-    </script>
-    <header class="bg-black py-12 text-center shadow-xl flex justify-between items-center fade-in ">
+    <header class="bg-black py-6 px-8 flex justify-between items-center fade-in shadow-xl">
+        <!-- Menú Hamburguesa -->
         <label for="menu_hamburguesa">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="list_icon"
                 viewBox="0 0 16 16">
@@ -138,38 +202,46 @@
                     d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
             </svg>
         </label>
+
         <input class="menu_hamburguesa" type="checkbox" name="" id="menu_hamburguesa">
+
         <ul class="ul_links">
             <li class="li_links">
-                <a href="index.html" class="link-selected">Inicio</a>
+                <a href="index.html" class="link">Inicio</a>
             </li>
             <li class="li_links">
-                <a href="soporte.html" class="link">Contacto</a>
+                <a href="contacto.html" class="link">Contacto</a>
             </li>
             <li class="li_links">
-                <a href="#" class="link">Créditos</a>
-            </li>
-
-            <li class="li_links">
-                <a href="#" class="link">Trailer oficial</a>
-            </li>
-            
-            <li class="li_links">
-                <a href="blog.html" class="link">Blog</a>
+                <a href="blog.html" class="link-selected">Blog</a>
             </li>
             <li class="li_links">
-                <a href="#" class="link">Registro de Partidas</a>
+                <a href="registro-partidas.html" class="link">Registro de Partidas</a>
             </li>
 
             <li class="li_links">
                 <a href="author.html" class="link">Autor</a>
             </li>
         </ul>
+        <!-- Título y Subtítulo -->
+        <div class="text-center px-4">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold text-red-600 flicker">
+                Darkness Awaits
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 italic mt-2">
+                La oscuridad te espera... ¿Estás listo?
+            </p>
+        </div>
 
-        <h1 class="text-6xl font-bold text-red-600">Darkness Awaits - Blog</h1>
-        <p class="text-2xl text-gray-400 italic">Explora las sombras, descubre la verdad.</p>
+        <!-- Botón de Mutear -->
+        <button id="mute-button" class="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition tx-20">
+            🔊
+        </button>
+
     </header>
-    
+    <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
+
+
     <section class="container mx-auto my-16 p-12 content-section">
         <h2 class="text-5xl font-semibold text-red-500 text-center">Últimos Artículos</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12" id="noticias_principales">
@@ -190,41 +262,66 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
-            <div class="post-card"><h3 class="text-3xl font-bold text-red-400">Pesadillas recurrentes</h3><p class="mt-4 text-gray-300">Cómo el juego se inspira en los miedos más comunes.</p><a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a></div>
-            <div class="post-card"><h3 class="text-3xl font-bold text-red-400">Criaturas ocultas</h3><p class="mt-4 text-gray-300">Los monstruos más aterradores que acechan en la oscuridad.</p><a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a></div>
-            <div class="post-card"><h3 class="text-3xl font-bold text-red-400">Psicología del terror</h3><p class="mt-4 text-gray-300">Por qué el miedo nos fascina y nos aterra al mismo tiempo.</p><a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a></div>
-            <div class="post-card"><h3 class="text-3xl font-bold text-red-400">Los Secretos de la Oscuridad</h3><p class="mt-4 text-gray-300">Descubre los elementos más aterradores que se ocultan en el juego.</p><a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a></div>
-            <div class="post-card"><h3 class="text-3xl font-bold text-red-400">Creando el Ambiente de Terror</h3><p class="mt-4 text-gray-300">Cómo se diseñaron los escenarios para maximizar el miedo.</p><a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a></div>
-            <div class="post-card"><h3 class="text-3xl font-bold text-red-400">El Origen de la Historia</h3><p class="mt-4 text-gray-300">Los mitos y leyendas que inspiraron Darkness Awaits.</p><a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a></div>
+            <div class="post-card">
+                <h3 class="text-3xl font-bold text-red-400">Pesadillas recurrentes</h3>
+                <p class="mt-4 text-gray-300">Cómo el juego se inspira en los miedos más comunes.</p><a href="#"
+                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            </div>
+            <div class="post-card">
+                <h3 class="text-3xl font-bold text-red-400">Criaturas ocultas</h3>
+                <p class="mt-4 text-gray-300">Los monstruos más aterradores que acechan en la oscuridad.</p><a href="#"
+                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            </div>
+            <div class="post-card">
+                <h3 class="text-3xl font-bold text-red-400">Psicología del terror</h3>
+                <p class="mt-4 text-gray-300">Por qué el miedo nos fascina y nos aterra al mismo tiempo.</p><a href="#"
+                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            </div>
+            <div class="post-card">
+                <h3 class="text-3xl font-bold text-red-400">Los Secretos de la Oscuridad</h3>
+                <p class="mt-4 text-gray-300">Descubre los elementos más aterradores que se ocultan en el juego.</p><a
+                    href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            </div>
+            <div class="post-card">
+                <h3 class="text-3xl font-bold text-red-400">Creando el Ambiente de Terror</h3>
+                <p class="mt-4 text-gray-300">Cómo se diseñaron los escenarios para maximizar el miedo.</p><a href="#"
+                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            </div>
+            <div class="post-card">
+                <h3 class="text-3xl font-bold text-red-400">El Origen de la Historia</h3>
+                <p class="mt-4 text-gray-300">Los mitos y leyendas que inspiraron Darkness Awaits.</p><a href="#"
+                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            </div>
         </div>
-            
-            
-        
+
+
+
     </section>
-    
+
     <footer class="bg-black py-12 text-center fade-in shadow-xl text-gray-400">
         <div class="container mx-auto px-6">
             <p class="text-lg">&copy; 2025 Darkness Awaits. Todos los derechos reservados.</p>
-    
+
             <div class="flex justify-center space-x-6 mt-4">
                 <a href="#" class="hover:text-red-500 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                     </svg>
                 </a>
                 <a href="#" class="hover:text-red-500 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.46.35a9 9 0 0 1-2.84 1.08 4.47 4.47 0 0 0-7.59 4.07A12.7 12.7 0 0 1 3 2.35 4.47 4.47 0 0 0 4.57 9.86 4.46 4.46 0 0 1 2 9.2v.06A4.47 4.47 0 0 0 4.44 14a4.48 4.48 0 0 1-2 .08 4.48 4.48 0 0 0 4.18 3.12A9 9 0 0 1 0 19.54a12.7 12.7 0 0 0 6.92 2c8.3 0 12.86-6.88 12.86-12.86v-.59A9 9 0 0 0 23 3z"/>
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.46.35a9 9 0 0 1-2.84 1.08 4.47 4.47 0 0 0-7.59 4.07A12.7 12.7 0 0 1 3 2.35 4.47 4.47 0 0 0 4.57 9.86 4.46 4.46 0 0 1 2 9.2v.06A4.47 4.47 0 0 0 4.44 14a4.48 4.48 0 0 1-2 .08 4.48 4.48 0 0 0 4.18 3.12A9 9 0 0 1 0 19.54a12.7 12.7 0 0 0 6.92 2c8.3 0 12.86-6.88 12.86-12.86v-.59A9 9 0 0 0 23 3z" />
                     </svg>
                 </a>
                 <a href="#" class="hover:text-red-500 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 15l5.19-3L10 9z"/>
-                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                        <path d="M10 15l5.19-3L10 9z" />
+                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
                     </svg>
                 </a>
             </div>
-    
+
             <div class="mt-6">
                 <ul class="flex justify-center space-x-6 text-sm">
                     <li><a href="#" class="hover:text-red-500 transition">Política de Privacidad</a></li>
@@ -233,11 +330,35 @@
                     <li><a href="#" class="hover:text-red-500 transition">Contacto</a></li>
                 </ul>
             </div>
-    
+
             <div class="mt-6">
-                <p class="text-xs">Desarrollado por <a href="#" class="text-red-500 hover:underline">Darkness Team</a></p>
+                <p class="text-xs">Desarrollado por <a href="#" class="text-red-500 hover:underline">Darkness Team</a>
+                </p>
             </div>
         </div>
-    </footer>
+    </footer>
+
+    <script>
+        // Linterna
+        document.addEventListener("mousemove", (e) => {
+            const linterna = document.getElementById("linterna");
+            linterna.style.top = `${e.clientY}px`;
+            linterna.style.left = `${e.clientX}px`;
+        });
+
+        // Botón de mute
+        const audio = document.getElementById("background-music");
+        const muteButton = document.getElementById("mute-button");
+        muteButton.addEventListener("click", () => {
+            if (audio.muted) {
+                audio.muted = false;
+                muteButton.textContent = " 🔊 ";
+            } else {
+                audio.muted = true;
+                muteButton.textContent = " 🔇 ";
+            }
+        });
+    </script>
 </body>
+
 </html>
