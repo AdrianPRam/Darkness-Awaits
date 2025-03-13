@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
     <meta name="author" content="Darkness-Awaits"><!-- Define el autor del documento -->
-    <meta name="description" content="Principal Menu">
+    <meta name="description" content="Game Registration">
     <!-- Proporciona una descripción del contenido del documento para SEO -->
 
     <meta property="og:url" content="Darkness-Awaits">
     <!-- Define la URL del documento para Open Graph (redes sociales) -->
 
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="game-registration, follow">
     <!-- Indica a los motores de búsqueda que indexen la página, debería ser 'index, follow' -->
 
     <meta name="keywords" content="Darkness-Awaits">
@@ -50,9 +50,6 @@
             }
         }
 
-
-
-
         @keyframes ms-light {}
 
         :root {
@@ -74,6 +71,16 @@
 
         header {
             height: var(--altura_header);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            flex-grow: 1;
         }
 
         nav {
@@ -172,7 +179,6 @@
             font-weight: 700;
         }
 
-
         .fade-in {
             animation: fadeIn 2s ease-in;
         }
@@ -212,10 +218,24 @@
         .tx-20 {
             font-size: 200%;
         }
+
+        .author-img-align {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-img-align img {
+            padding-top: 75px;
+            padding-bottom: 50px;
+
+        }
     </style>
 </head>
 
 <body class="bg-dark text-white font-sans fixed-bg">
+    
 
     <div id="linterna" class="linterna z-40"></div>
     <header class="bg-black py-6 px-8 flex justify-between items-center fade-in shadow-xl">
@@ -232,17 +252,16 @@
 
         <ul class="ul_links">
             <li class="li_links">
-                <a href="index.html" class="link-selected">Inicio</a>
+                <a href="index.html" class="link">Inicio</a>
             </li>
             <li class="li_links">
                 <a href="soporte.html" class="link">Contacto</a>
             </li>
-
             <li class="li_links">
                 <a href="#" class="link">Blog</a>
             </li>
             <li class="li_links">
-                <a href="registro-partidas.html" class="link">Registro de Partidas</a>
+                <a href="registro-partidas.html" class="link-selected">Registro de Partidas</a>
             </li>
 
             <li class="li_links">
@@ -265,58 +284,12 @@
     <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
 
 
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Sobre el juego</h2>
-        <p class="mt-6 text-gray-300 text-xl">Explora un mundo de pesadillas donde cada sombra oculta un secreto.
-            Resuelve acertijos, evade criaturas aterradoras y descubre la verdad detrás de la oscuridad.</p>
+    <section class="container mx-auto text-center fade-in content-section author-img-align">
+        <h2 class="text-5xl font-semibold text-red-500">Registro de Partidas</h2>
+        <p class="text-gray-300 mt-2">Progresos y récords de Darness Awaits</p>
+    
     </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Características</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Terror psicológico</h3>
-                <p class="text-gray-300 text-lg">Una historia envolvente que juega con tu mente.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Gráficos inmersivos</h3>
-                <p class="text-gray-300 text-lg">Ambientes oscuros y realistas que te pondrán los pelos de punta.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Jugabilidad intensa</h3>
-                <p class="text-gray-300 text-lg">Escape, acertijos y tensión constante.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Historia</h2>
-        <p class="mt-6 text-gray-300 text-xl">Te despiertas en un lugar oscuro sin memoria de cómo llegaste ahí. Ecos de
-            susurros te guían a través de pasillos sombríos. ¿Podrás descubrir la verdad antes de que sea demasiado
-            tarde?</p>
-    </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Personajes</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">El Protagonista</h3>
-                <p class="text-gray-300 text-lg">Un alma perdida en un mundo aterrador, buscando respuestas.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">La Sombra</h3>
-                <p class="text-gray-300 text-lg">Una entidad misteriosa que te observa desde las tinieblas.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Tráiler</h2>
-        <div class="mt-8">
-            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450"
-                src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
+    
 
     <footer class="bg-black py-12 text-center fade-in shadow-xl text-gray-400">
         <div class="container mx-auto px-6">
@@ -356,7 +329,6 @@
         </div>
     </footer>
     
-
     <script>
         // Linterna
         document.addEventListener("mousemove", (e) => {
