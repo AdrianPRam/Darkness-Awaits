@@ -141,6 +141,11 @@ body{
         background-color: rgb(169, 161, 201);
         color: white;
     }
+
+    .buttoncomentarios{
+        color: rgb(134, 134, 204)
+    }
+
     input{
     width: 200px;
     height: 23px;
