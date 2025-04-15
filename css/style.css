@@ -171,6 +171,13 @@ nav a {
     transition: all 0.5s ease-in-out;
 }
 
+.separardivs{
+    margin-left: 30px;
+    display: flex;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
 header {
     height: var(--altura_header);
 }
