@@ -22,8 +22,8 @@ const audio = document.getElementById("background-music");
 document.getElementById('formularioComentario').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que el formulario recargue la página al enviarlo
             
-   // Obtener el valor del comentario
-    const comentario = document.getElementById('comentario').value;
+// Obtener el valor del comentario
+const comentario = document.getElementById('comentario').value;
             
     // Si el comentario no está vacío, lo agregamos al div de comentarios
     if (comentario.trim() !== "") {
