@@ -1,93 +1,269 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 700;
-    }
+@keyframes ms-light {}
+
+        @media (max-width: 1024px) {
+            iframe {
+                width: 99%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-section {
+    flex-grow: 1;
+}
     
-    nav{
+nav {
+    /* Estilo del menú de navegación */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3.125rem;
+    height: var(--altura_header);
+    align-items: center;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 35px;
-    }
+    z-index: 1000;
+    background-color: var(--color-primario);
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+nav a {
+    /* Estilo para los enlaces en el menú de navegación */
+    text-decoration: none;
+}
+
+.menu_hamburguesa {
+    /* Estilo para el menú hamburguesa (oculto por defecto) */
+    display: none;
+}
+
+.menu_hamburguesa:checked+.ul_links {
+    /* Estilo para mostrar el menú al seleccionar el checkbox */
+    height: calc(100vh - var(--altura_header) + 75px);
+    background-color: var(--color-menu);
+    z-index: 40;
+}
+
+/* Estilos para secciones específicas */
+#about-section {
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+#sobremi-section h2 {
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+
+.fade-in {
+    animation: fadeIn 2s ease-in;
+}
+
+.flicker {
+    animation: flicker 1.5s infinite alternate;
+}
+
+.bg-dark {
+    background: radial-gradient(circle, rgba(20, 20, 20, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.fixed-bg {
+    background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWI1ZHVsdTFkamdoMzAxbHI3ZzAzbGc3ZHR5ejhncmNxMGxqd283eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xyBPM2nmoMvraw/giphy.gif') center/cover no-repeat fixed;
+    position: relative;
+}
+
+.content-section {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 4rem;
+    margin: 4rem auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.linterna {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px 50px rgba(255, 255, 200, 0.2);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: lighten;
+}
+
+.tx-20 {
+    font-size: 200%;
+}
+
+.ul_links {
+    /* Estilo para el menú desplegable */
+    width: 100%;
+    position: absolute;
+    top: var(--altura_header);
+    left: 0;
+    height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transition: all .3s;
+}
+
+.link {
+    /* Estilo para los enlaces disponibles en el menú */
+    font-size: 3em;
+    color: var(--color_blanco);
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+}
+
+.link:hover {
+    /* Efecto hover para los enlaces */
+    transform: scale(1.05);
+    color: hwb(0 33% 0% / 0.55);
+}
+
+.link-selected {
+    /* Estilo para los enlaces en el menú */
+    font-size: 3em;
+    color: rgb(157, 156, 156);
+    opacity: 50%;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+}
+
+header {
+    height: var(--altura_header);
+}
+
+:root {
+    /* Definición de variables CSS para colores, tamaños y efectos */
+    --color-primario: rgba(38, 38, 38, 0.9);
+    --color-menu: rgba(43, 42, 42, 0.9);
+    --filtro: blur(5px);
+    --altura_header: 8rem;
+    --padding_left_right: 2rem;
+    --ancho_maximo: 1200px;
+}
     
-    #menu{
+#menu{
     width: 100%;
     height: 35px;
     background: #000000;
     float: left;
     position: relative;
-    } 
+} 
     
-    #menu .menup{
+#menu .menup{
     width: 960px;
     height: 35px;
     margin: 0 auto;
     padding: 0px;
-    }
+}
     
-    #menu li{
+#menu li{
     float:left;
     position:relative;
     padding: 6px 0;
     margin: 0;
     list-style: none;
-    } 
+} 
     
-    #menu li a{
+#menu li a{
     color:#ffffff;
     font-size:12px;
     padding: 10px 10px;
     /* text-shadow: 0px -1px 0px #000; */
     text-decoration: none;
     text-transform: uppercase;
-    } 
+} 
     
-    /*ocultamos el dropdown*/    
-    #menu li > ul{
+/*ocultamos el dropdown*/    
+#menu li > ul{
     display:none;
     position:absolute;
     background: #000000;
     padding: 0;
     z-index: 2;
-    }
+}
     
-    #menu li > ul li{
+#menu li > ul li{
     padding:0;
     margin:1px 0;
     list-style: none;
-    } 
+} 
     
-    #menu li > ul li:first-child, #menu li:hover > ul li:last-child{
+#menu li > ul li:first-child, #menu li:hover > ul li:last-child{
     padding:0;
     margin:0 0;
-    }
+}
     
-    /*le damos el color blanco al enlance del submenu y el background negro */    
-    #menu li:hover > a{
+/*le damos el color blanco al enlance del submenu y el background negro */    
+#menu li:hover > a{
     color:#424242;
     background-color: #ffffff;
     width: 120px; 
-    } 
+} 
     
-    #menu li > ul li a{
+#menu li > ul li a{
     width: 150px;
     margin: 0 0 0 5px;
     display:block;
     color: #ffffff;
-    } 
+} 
     
-    /* Con esto mantenemos el codigo submenu activo */
-    #menu li:hover > ul{
+/* Con esto mantenemos el codigo submenu activo */
+#menu li:hover > ul{
     display:block;
     width: 150px;
     top: 35px;
-        }
+}
     
-    #menu .divider{
+#menu .divider{
     border-right: 1px solid #BCBCBC;
     height: 23px;
-    }
-    #menu .dropdown::after{
+}
+
+#menu .dropdown::after{
     content:"";
     position: absolute;
     top: 15px;
@@ -98,78 +274,78 @@ body{
     border-width: 4.3px;
     border-bottom-width:0px;
     border-color: #BCBCBC transparent transparent transparent;
-    }
+}
     
-    #menu li:hover::after{
+#menu li:hover::after{
     border-color: #fff transparent transparent transparent;
-    }
+}
     
     
-    #menu .dropdown span{
+#menu .dropdown span{
     height: 15px;
     width: 3px;
     position: absolute;
     top: 6px;
     left: 5px;
-    }
+}
 
-    .posicio_menu{
-        margin-top: -90px;
-        margin-left: -180px;
-    }
+.posicio_menu{
+    margin-top: -90px;
+    margin-left: -180px;
+}
 
-    .movernav{
-        margin-left: 350px;
-    }
+.movernav{
+    margin-left: 350px;
+}
 
-    .Formulari{ 
-        margin-left: 30px;
-        display: flex;
-        margin-top: 8px;
-    }
+.Formulari{ 
+    margin-left: 30px;
+    display: flex;
+    margin-top: 8px;
+}
 
-    button{
-        border-radius: 20%;
-        width: 80px;
-        background-color: white;
-        color: #000000;
-        border-color: rgba(86, 74, 133, 0.692);
-        transition: background-color 0.5s;
-    
-    }
-    button:hover{
-        background-color: rgb(169, 161, 201);
-        color: white;
-    }
+button{
+    border-radius: 20%;
+    width: 80px;
+    background-color: white;
+    color: #000000;
+    border-color: rgba(86, 74, 133, 0.692);
+    transition: background-color 0.5s;    
+}
+ 
+button:hover{
+    background-color: rgb(169, 161, 201);
+    color: white;
+}
 
-    .buttoncomentarios{
-        color: rgb(134, 134, 204)
-    }
+.buttoncomentarios{
+    color: rgb(134, 134, 204)
+}
 
-    input{
+input{
     width: 200px;
     height: 23px;
     transition: background-color 1s ;
     transition: width 0.5s;
     border-radius: 10px;
     margin-bottom: 10px;
-    }
+}
 
-    input:hover{
+input:hover{
     background-color: rgb(218, 216, 219);
     width: 220px;
-    }
+}
 
-    textarea{
-        border-radius: 10px;
-        width: 200px;
-        transition: background-color 1s ;
-        transition: width 0.5s;
-    }
+textarea{
+    border-radius: 10px;
+    width: 200px;
+    transition: background-color 1s ;
+    transition: width 0.5s;
+}
 
-    textarea:hover{
-        background-color: rgb(218, 216, 219);
-        width: 220px;
-    }
+textarea:hover{
+    background-color: rgb(218, 216, 219);
+    width: 220px;
+}
 
     
