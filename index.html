@@ -89,7 +89,7 @@
 
 
     </header>
-    <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
+    <audio id="background-music" src="/sources/sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
 
 
     <section class="container mx-auto text-center fade-in content-section">
@@ -185,28 +185,8 @@
         </div>
     </footer>
 
+    <script src="/javascript/script.js"></script>
 
-    <script>
-        // Linterna
-        document.addEventListener("mousemove", (e) => {
-            const linterna = document.getElementById("linterna");
-            linterna.style.top = `${e.clientY}px`;
-            linterna.style.left = `${e.clientX}px`;
-        });
-
-        // Botón de mute
-        const audio = document.getElementById("background-music");
-        const muteButton = document.getElementById("mute-button");
-        muteButton.addEventListener("click", () => {
-            if (audio.muted) {
-                audio.muted = false;
-                muteButton.textContent = " 🔊 ";
-            } else {
-                audio.muted = true;
-                muteButton.textContent = " 🔇 ";
-            }
-        });
-    </script>
 </body>
 
 </html>

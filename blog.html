@@ -179,27 +179,7 @@
         </div>
     </footer>
 
-    <script>
-        // Linterna
-        document.addEventListener("mousemove", (e) => {
-            const linterna = document.getElementById("linterna");
-            linterna.style.top = `${e.clientY}px`;
-            linterna.style.left = `${e.clientX}px`;
-        });
-
-        // Botón de mute
-        const audio = document.getElementById("background-music");
-        const muteButton = document.getElementById("mute-button");
-        muteButton.addEventListener("click", () => {
-            if (audio.muted) {
-                audio.muted = false;
-                muteButton.textContent = " 🔊 ";
-            } else {
-                audio.muted = true;
-                muteButton.textContent = " 🔇 ";
-            }
-        });
-    </script>
+    <script src="/javascript/script.js"></script>
 </body>
 
 </html>
