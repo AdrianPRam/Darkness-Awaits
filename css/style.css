@@ -326,7 +326,8 @@ button:hover{
 }
 
 .buttoncomentarios{
-    color: rgb(134, 134, 204)
+    color: rgb(134, 134, 204);
+    border-radius: 5px;
 }
 
 input{
@@ -336,6 +337,12 @@ input{
     transition: width 0.5s;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+.comentarios{
+    color : black;
+    border-radius: 5px;
+
 }
 
 input:hover{
