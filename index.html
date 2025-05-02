@@ -2,232 +2,25 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
-    <meta name="author" content="Darkness-Awaits"><!-- Define el autor del documento -->
-    <meta name="description" content="Principal Menu">
-    <!-- Proporciona una descripción del contenido del documento para SEO -->
-
+    <meta charset="UTF-8">
+    <meta name="author" content="Darkness-Awaits">
+    <meta name="description" content="Darkness Awaits - Juego de terror psicológico">
     <meta property="og:url" content="Darkness-Awaits">
-    <!-- Define la URL del documento para Open Graph (redes sociales) -->
-
     <meta name="robots" content="index, follow">
-    <!-- Indica a los motores de búsqueda que indexen la página, debería ser 'index, follow' -->
-
-    <meta name="keywords" content="Darkness-Awaits">
-    <!-- Palabras clave para SEO -->
-
+    <meta name="keywords" content="juego de terror, horror, darkness awaits, videojuego indie">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Configura la ventana gráfica para un diseño responsive -->
 
     <link rel="icon" href="https://i.pinimg.com/736x/d0/ee/cd/d0eecd5b96b94707a317053ab1addd83.jpg">
-    <!-- Define el logo -->
-
     <title>Darkness Awaits</title>
+
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes flicker {
-            0% {
-                opacity: 0.8;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-
-
-
-        @keyframes ms-light {}
-
-        :root {
-            /* Definición de variables CSS para colores, tamaños y efectos */
-            --color-primario: rgba(38, 38, 38, 0.9);
-            --color-menu: rgba(43, 42, 42, 0.9);
-            --filtro: blur(5px);
-            --altura_header: 8rem;
-            --padding_left_right: 2rem;
-            --ancho_maximo: 1200px;
-        }
-
-        @media (max-width: 1024px) {
-            iframe {
-                width: 99%;
-            }
-        }
-
-
-        header {
-            height: var(--altura_header);
-        }
-
-        nav {
-            /* Estilo del menú de navegación */
-            display: flex;
-            justify-content: space-between;
-            padding: 0 3.125rem;
-            height: var(--altura_header);
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: var(--color-primario);
-            backdrop-filter: blur(5px);
-            color: white;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content-section {
-            flex-grow: 1;
-        }
-
-        nav a {
-            /* Estilo para los enlaces en el menú de navegación */
-            text-decoration: none;
-        }
-
-        nav ol,
-        ul {
-            /* Eliminación de estilo de lista por defecto */
-            list-style: none;
-        }
-
-        .menu_hamburguesa {
-            /* Estilo para el menú hamburguesa (oculto por defecto) */
-            display: none;
-        }
-
-        .menu_hamburguesa:checked+.ul_links {
-            /* Estilo para mostrar el menú al seleccionar el checkbox */
-            height: calc(100vh - var(--altura_header) + 75px);
-            background-color: var(--color-menu);
-            z-index: 40;
-        }
-
-        .ul_links {
-            /* Estilo para el menú desplegable */
-            width: 100%;
-            position: absolute;
-            top: var(--altura_header);
-            left: 0;
-            height: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            transition: all .3s;
-        }
-
-        .link {
-            /* Estilo para los enlaces disponibles en el menú */
-            font-size: 3em;
-            color: var(--color_blanco);
-            font-weight: bold;
-            transition: all 0.5s ease-in-out;
-        }
-
-        .link:hover {
-            /* Efecto hover para los enlaces */
-            transform: scale(1.05);
-            color: hwb(0 33% 0% / 0.55);
-        }
-
-        .link-selected {
-            /* Estilo para los enlaces en el menú */
-            font-size: 3em;
-            color: rgb(157, 156, 156);
-            opacity: 50%;
-            font-weight: bold;
-            transition: all 0.5s ease-in-out;
-        }
-
-        /* Estilos para secciones específicas */
-        #about-section {
-            min-height: 100vh;
-            flex-direction: column;
-            justify-content: center;
-            padding: 8rem 2rem;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            gap: 0.5rem;
-        }
-
-        #sobremi-section h2 {
-            margin-bottom: 1rem;
-            font-size: 2.75rem;
-            font-weight: 700;
-        }
-
-
-        .fade-in {
-            animation: fadeIn 2s ease-in;
-        }
-
-        .flicker {
-            animation: flicker 1.5s infinite alternate;
-        }
-
-        .bg-dark {
-            background: radial-gradient(circle, rgba(20, 20, 20, 1) 0%, rgba(0, 0, 0, 1) 100%);
-        }
-
-        .fixed-bg {
-            background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWI1ZHVsdTFkamdoMzAxbHI3ZzAzbGc3ZHR5ejhncmNxMGxqd283eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xyBPM2nmoMvraw/giphy.gif') center/cover no-repeat fixed;
-            position: relative;
-        }
-
-        .content-section {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 4rem;
-            margin: 4rem auto;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-        }
-
-        .linterna {
-            position: fixed;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            box-shadow: 0 0 100px 50px rgba(255, 255, 200, 0.2);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: lighten;
-        }
-
-        .tx-20 {
-            font-size: 200%;
-        }
-    </style>
+    <script src="script.js"></script>
 </head>
 
-<body class="bg-dark text-white font-sans fixed-bg">
-
+<body class="bg-dark text-white font-sans">
     <div id="linterna" class="linterna z-40"></div>
+
     <header class="bg-black py-6 px-8 flex justify-between items-center fade-in shadow-xl">
         <!-- Menú Hamburguesa -->
         <label for="menu_hamburguesa">
@@ -248,16 +41,11 @@
                 <a href="contacto.html" class="link">Contacto</a>
             </li>
             <li class="li_links">
-                <a href="#" class="link">Trailer oficial</a>
-            </li>
-            
-            <li class="li_links">
                 <a href="blog.html" class="link">Blog</a>
             </li>
             <li class="li_links">
                 <a href="registro-partidas.html" class="link">Registro de Partidas</a>
             </li>
-
             <li class="li_links">
                 <a href="author.html" class="link">Autor</a>
             </li>
@@ -268,75 +56,143 @@
 
         <!-- Título y Subtítulo -->
         <div class="text-center px-4">
+
             <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold text-red-600 flicker">
-                Darkness Awaits
+                DARKNESS AWAITS
             </h1>
             <p class="text-lg sm:text-xl text-gray-400 italic mt-2">
                 La oscuridad te espera... ¿Estás listo?
             </p>
         </div>
+
         <!-- Botón de Mutear -->
         <button id="mute-button" class="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-800 transition tx-20">
             🔊
         </button>
-
-
     </header>
-    <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
 
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Sobre el juego</h2>
-        <p class="mt-6 text-gray-300 text-xl">Explora un mundo de pesadillas donde cada sombra oculta un secreto.
-            Resuelve acertijos, evade criaturas aterradoras y descubre la verdad detrás de la oscuridad.</p>
-    </section>
-
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Características</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Terror psicológico</h3>
-                <p class="text-gray-300 text-lg">Una historia envolvente que juega con tu mente.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Gráficos inmersivos</h3>
-                <p class="text-gray-300 text-lg">Ambientes oscuros y realistas que te pondrán los pelos de punta.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">Jugabilidad intensa</h3>
-                <p class="text-gray-300 text-lg">Escape, acertijos y tensión constante.</p>
+    <!-- Hero Section --> 
+    <section class="hero-section fade-in relative overflow-hidden">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="sources/images/game/Cinematica.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        
+        <div class="hero-overlay absolute inset-0 bg-black bg-opacity-60 z-1"></div>
+        
+        <div class="hero-content relative z-2">
+            <h2 class="hero-title">DÉJATE SUCUMBIR POR LA OSCURIDAD...</h2>
+            <p class="hero-subtitle">Adéntrate en un mundo de pesadillas donde cada sombra oculta un secreto. ¿Eres lo suficientemente valiente para descubrir la verdad?</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn-primary">DESCARGAR AHORA</a>
+                <a href="sources/images/game/Cinematica.mp4" class="btn-secondary" >VER TRÁILER</a>
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Historia</h2>
-        <p class="mt-6 text-gray-300 text-xl">Te despiertas en un lugar oscuro sin memoria de cómo llegaste ahí. Ecos de
-            susurros te guían a través de pasillos sombríos. ¿Podrás descubrir la verdad antes de que sea demasiado
-            tarde?</p>
+    <!-- Game Features -->
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">👁️</div>
+            <h3>Terror Psicológico</h3>
+            <p>Una narrativa que jugará con tus miedos más profundos.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌑</div>
+            <h3>Ambientes Inmersivos</h3>
+            <p>Explora lugares oscuros llenos de secretos y peligros.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>Acertijos Desafiantes</h3>
+            <p>Resuelve puzzles para avanzar en la historia.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎧</div>
+            <h3>Audio 3D</h3>
+            <p>Sonido binaural que te hará girar la cabeza en la vida real.</p>
+        </div>
     </section>
 
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Personajes</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">El Protagonista</h3>
-                <p class="text-gray-300 text-lg">Un alma perdida en un mundo aterrador, buscando respuestas.</p>
-            </div>
-            <div class="p-8 bg-gray-800 rounded-lg hover:scale-105 transform transition duration-300 shadow-md">
-                <h3 class="text-2xl font-bold text-red-400">La Sombra</h3>
-                <p class="text-gray-300 text-lg">Una entidad misteriosa que te observa desde las tinieblas.</p>
+    <!-- About Game -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>SOBRE EL JUEGO</h2>
+            <p>Darkness Awaits es una experiencia de terror psicológico en primera persona donde explorarás un mundo de
+                pesadillas. Cada sombra oculta un secreto, cada sonido puede ser tu perdición. ¿Podrás mantener la
+                cordura lo suficiente para descubrir la verdad?</p>
+
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Horas de juego</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Acertijos únicos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Secretos ocultos</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto text-center fade-in content-section">
-        <h2 class="text-5xl font-semibold text-red-500">Tráiler</h2>
-        <div class="mt-8">
-            <iframe class="mx-auto rounded-lg shadow-lg" width="800" height="450"
-                src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <!-- Screenshots Gallery -->
+    <section class="gallery-section">
+        <h2>GALERÍA</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
         </div>
     </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2>RESEÑAS DEL VIDEOJUEGO</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <p>"El juego más aterrador que he jugado en años. No podía dormir después de la primera sesión."</p>
+                <div class="testimonial-author">- Alex, HorrorFan92</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"La atmósfera es increíble. Realmente te hace sentir que estás en una pesadilla."</p>
+                <div class="testimonial-author">- María, GameReviewer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <!-- Fondo interactivo con partículas -->
+        <div id="particles-js" class="particles-background"></div>
+        
+        <!-- Contenido de la sección -->
+        <div class="download-content">
+            <h2>¿LISTO PARA EL HORROR?</h2>
+            <p class="glitch-text">Descarga ahora y comienza tu viaje a la oscuridad</p>
+            
+            <div class="download-options">
+                <a href="como-descargar.html" class="download-btn windows pulse-animation">
+                    <span class="btn-icon">💻</span>
+                    <span>DESCARGAR PARA WINDOWS</span>
+                </a>
+                
+                <a href="https://corbekun.itch.io/darkness-awaits" class="download-btn mac pulse-animation">
+                    <span class="btn-icon">👾</span>
+                    <span>PÁGINA PARA MAC, LINUX Y WINDOWS</span>
+                </a>
+            </div>
+            
+            <div class="blood-drips"></div>
+        </div>
+    </section>
+
 
     <footer class="bg-black py-12 text-center fade-in shadow-xl text-gray-400">
         <div class="container mx-auto px-6">
@@ -378,28 +234,8 @@
         </div>
     </footer>
 
-
-    <script>
-        // Linterna
-        document.addEventListener("mousemove", (e) => {
-            const linterna = document.getElementById("linterna");
-            linterna.style.top = `${e.clientY}px`;
-            linterna.style.left = `${e.clientX}px`;
-        });
-
-        // Botón de mute
-        const audio = document.getElementById("background-music");
-        const muteButton = document.getElementById("mute-button");
-        muteButton.addEventListener("click", () => {
-            if (audio.muted) {
-                audio.muted = false;
-                muteButton.textContent = " 🔊 ";
-            } else {
-                audio.muted = true;
-                muteButton.textContent = " 🔇 ";
-            }
-        });
-    </script>
+    <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
