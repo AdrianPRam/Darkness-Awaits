@@ -21,175 +21,12 @@
 
     <link rel="icon" href="https://i.pinimg.com/736x/d0/ee/cd/d0eecd5b96b94707a317053ab1addd83.jpg">
     <!-- Define el logo -->
+    <link rel="stylesheet" href="/css/style.css">
 
 
     <title>Darkness Awaits</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes flicker {
-            0% {
-                opacity: 0.8;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes ms-light {}
-
-        :root {
-            /* Definición de variables CSS para colores, tamaños y efectos */
-            --color-primario: rgba(38, 38, 38, 0.9);
-            --color-menu: rgba(43, 42, 42, 0.9);
-            --filtro: blur(5px);
-            --altura_header: 8rem;
-            --padding_left_right: 2rem;
-            --ancho_maximo: 1200px;
-        }
-
-        @media (max-width: 1024px) {
-            iframe {
-                width: 99%;
-            }
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content-section {
-            flex-grow: 1;
-        }
-
-        .bg-dark {
-            background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWI1ZHVsdTFkamdoMzAxbHI3ZzAzbGc3ZHR5ejhncmNxMGxqd283eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xyBPM2nmoMvraw/giphy.gif') center/cover no-repeat fixed;
-            position: relative;
-        }
-
-        .post-card {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .post-card:hover {
-            transform: scale(1.05);
-        }
-
-        .music-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 0, 0, 0.8);
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-            transition: background 0.3s;
-        }
-
-        .music-btn:hover {
-            background: rgba(255, 0, 0, 1);
-        }
-
-        nav {
-            /* Estilo del menú de navegación */
-            display: flex;
-            justify-content: space-between;
-            padding: 0 3.125rem;
-            height: var(--altura_header);
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: var(--color-primario);
-            backdrop-filter: blur(5px);
-            color: white;
-        }
-
-        nav a {
-            /* Estilo para los enlaces en el menú de navegación */
-            text-decoration: none;
-        }
-
-        nav ol,
-        ul {
-            /* Eliminación de estilo de lista por defecto */
-            list-style: none;
-        }
-
-        .menu_hamburguesa {
-            /* Estilo para el menú hamburguesa (oculto por defecto) */
-            display: none;
-        }
-
-        .menu_hamburguesa:checked+.ul_links {
-            /* Estilo para mostrar el menú al seleccionar el checkbox */
-            height: calc(100vh - var(--altura_header) + 75px);
-            background-color: var(--color-menu);
-            z-index: 40;
-        }
-
-        .ul_links {
-            /* Estilo para el menú desplegable */
-            width: 100%;
-            position: absolute;
-            top: var(--altura_header);
-            left: 0;
-            height: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            transition: all .3s;
-        }
-
-        .link {
-            /* Estilo para los enlaces disponibles en el menú */
-            font-size: 3em;
-            color: var(--color_blanco);
-            font-weight: bold;
-            transition: all 0.5s ease-in-out;
-        }
-
-        .link:hover {
-            /* Efecto hover para los enlaces */
-            transform: scale(1.05);
-            color: hwb(0 33% 0% / 0.55);
-        }
-
-        .link-selected {
-            /* Estilo para los enlaces en el menú */
-            font-size: 3em;
-            color: rgb(157, 156, 156);
-            opacity: 50%;
-            font-weight: bold;
-            transition: all 0.5s ease-in-out;
-        }
-    </style>
 </head>
 
 <body class="bg-dark text-white font-sans">
@@ -207,13 +44,20 @@
 
         <ul class="ul_links">
             <li class="li_links">
-                <a href="index.html" class="link">Inicio</a>
+                <a href="index.html" class="link-selected">Inicio</a>
             </li>
             <li class="li_links">
                 <a href="contacto.html" class="link">Contacto</a>
             </li>
             <li class="li_links">
-                <a href="blog.html" class="link-selected">Blog</a>
+                <a href="comentarios.html" class="link">Comentario</a>
+            </li>
+            <li class="li_links">
+                <a href="#" class="link">Trailer oficial</a>
+            </li>
+            
+            <li class="li_links">
+                <a href="blog.html" class="link">Blog</a>
             </li>
             <li class="li_links">
                 <a href="registro-partidas.html" class="link">Registro de Partidas</a>
@@ -222,7 +66,6 @@
             <li class="li_links">
                 <a href="author.html" class="link">Autor</a>
             </li>
-
             <li class="li_links">
                 <a href="como-descargar.html" class="link">¿Cómo lo descargo?</a>
             </li>
@@ -245,61 +88,57 @@
     </header>
     <audio id="background-music" src="sounds/sound-ambience-sonido-ambiente-3-14040.mp3" autoplay loop></audio>
 
-
     <section class="container mx-auto my-16 p-12 content-section">
         <h2 class="text-5xl font-semibold text-red-500 text-center">Últimos Artículos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12" id="noticias_principales">
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Los Secretos de la Oscuridad</h3>
-                <p class="mt-4 text-gray-300">Descubre los elementos más aterradores que se ocultan en el juego.</p>
-                <a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12" id="noticias_principales">
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Los Secretos de la Oscuridad</h3>
+                    <p class="mt-4 text-gray-300">Descubre los elementos más aterradores que se ocultan en el juego.</p>
+                    <a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Creando el Ambiente de Terror</h3>
+                    <p class="mt-4 text-gray-300">Cómo se diseñaron los escenarios para maximizar el miedo.</p>
+                    <a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">El Origen de la Historia</h3>
+                    <p class="mt-4 text-gray-300">Los mitos y leyendas que inspiraron Darkness Awaits.</p>
+                    <a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
             </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Creando el Ambiente de Terror</h3>
-                <p class="mt-4 text-gray-300">Cómo se diseñaron los escenarios para maximizar el miedo.</p>
-                <a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Pesadillas recurrentes</h3>
+                    <p class="mt-4 text-gray-300">Cómo el juego se inspira en los miedos más comunes.</p><a href="#"
+                        class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Criaturas ocultas</h3>
+                    <p class="mt-4 text-gray-300">Los monstruos más aterradores que acechan en la oscuridad.</p><a href="#"
+                        class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Psicología del terror</h3>
+                    <p class="mt-4 text-gray-300">Por qué el miedo nos fascina y nos aterra al mismo tiempo.</p><a href="#"
+                        class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Los Secretos de la Oscuridad</h3>
+                    <p class="mt-4 text-gray-300">Descubre los elementos más aterradores que se ocultan en el juego.</p><a
+                        href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">Creando el Ambiente de Terror</h3>
+                    <p class="mt-4 text-gray-300">Cómo se diseñaron los escenarios para maximizar el miedo.</p><a href="#"
+                        class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
+                <div class="post-card">
+                    <h3 class="text-3xl font-bold text-red-400">El Origen de la Historia</h3>
+                    <p class="mt-4 text-gray-300">Los mitos y leyendas que inspiraron Darkness Awaits.</p><a href="#"
+                        class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
+                </div>
             </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">El Origen de la Historia</h3>
-                <p class="mt-4 text-gray-300">Los mitos y leyendas que inspiraron Darkness Awaits.</p>
-                <a href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Pesadillas recurrentes</h3>
-                <p class="mt-4 text-gray-300">Cómo el juego se inspira en los miedos más comunes.</p><a href="#"
-                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Criaturas ocultas</h3>
-                <p class="mt-4 text-gray-300">Los monstruos más aterradores que acechan en la oscuridad.</p><a href="#"
-                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Psicología del terror</h3>
-                <p class="mt-4 text-gray-300">Por qué el miedo nos fascina y nos aterra al mismo tiempo.</p><a href="#"
-                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Los Secretos de la Oscuridad</h3>
-                <p class="mt-4 text-gray-300">Descubre los elementos más aterradores que se ocultan en el juego.</p><a
-                    href="#" class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">Creando el Ambiente de Terror</h3>
-                <p class="mt-4 text-gray-300">Cómo se diseñaron los escenarios para maximizar el miedo.</p><a href="#"
-                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-            <div class="post-card">
-                <h3 class="text-3xl font-bold text-red-400">El Origen de la Historia</h3>
-                <p class="mt-4 text-gray-300">Los mitos y leyendas que inspiraron Darkness Awaits.</p><a href="#"
-                    class="mt-4 inline-block text-red-500 hover:underline">Leer más</a>
-            </div>
-        </div>
-
-
-
     </section>
 
     <footer class="bg-black py-12 text-center fade-in shadow-xl text-gray-400">
@@ -342,27 +181,7 @@
         </div>
     </footer>
 
-    <script>
-        // Linterna
-        document.addEventListener("mousemove", (e) => {
-            const linterna = document.getElementById("linterna");
-            linterna.style.top = `${e.clientY}px`;
-            linterna.style.left = `${e.clientX}px`;
-        });
-
-        // Botón de mute
-        const audio = document.getElementById("background-music");
-        const muteButton = document.getElementById("mute-button");
-        muteButton.addEventListener("click", () => {
-            if (audio.muted) {
-                audio.muted = false;
-                muteButton.textContent = " 🔊 ";
-            } else {
-                audio.muted = true;
-                muteButton.textContent = " 🔇 ";
-            }
-        });
-    </script>
+    <script src="/javascript/script.js"></script>
 </body>
 
 </html>
